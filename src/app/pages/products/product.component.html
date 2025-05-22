@@ -1,0 +1,14 @@
+<h2>Produtos</h2>
+
+<app-entity-form
+  [entity]="newProduct"
+  [requiredFields]="['name', 'price']"
+  (save)="onSave($event)"
+></app-entity-form>
+
+<app-entity-list
+  [entities]="(products$ | async) ?? []"
+  [displayedColumns]="['name', 'price']"
+  (delete)="onDelete($event)"
+></app-entity-list>
+
