@@ -1,17 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Product } from '../../shared/models/product.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root',
+})
 export class ProductService {
-  private apiUrl = '/api/products'; // Mock
+  private apiUrl = '/api/products'; // Proxy para json-server
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<any[]> {
-    return of([
-      { id: 1, name: 'Notebook', price: 3000, categoryId: 1 },
-      { id: 2, name: 'Smartphone', price: 1500, categoryId: 1 },
-    ]);
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+
+  createProduct(product: Partial<Product>): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product);
+  }
+
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrl}/${product.id}`, product);
+  }
+
+  deleteProduct(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
