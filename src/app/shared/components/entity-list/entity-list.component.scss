@@ -1,0 +1,43 @@
+@use '../../../assets/scss/variables' as *;
+@use '../../../assets/scss/mixins' as *;
+
+.entity-list {
+  margin-bottom: $spacing-unit * 2;
+
+  &__empty-message {
+    text-align: center;
+    padding: $spacing-unit;
+    color: #888;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    @include shadow;
+
+    th,
+    td {
+      border: 1px solid $table-border-color;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    thead {
+      background-color: $primary-color;
+      color: white;
+    }
+
+    tbody {
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    }
+  }
+
+  .actions {
+    &__delete-button {
+      @include button-style($secondary-color);
+      font-size: 0.875rem;
+    }
+  }
+}

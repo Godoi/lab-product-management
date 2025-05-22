@@ -1,0 +1,13 @@
+<form [formGroup]="form" class="entity-form__form">
+  <div>
+    <label for="name" class="entity-form__label">Nome</label>
+    <input id="name" formControlName="name" class="entity-form__input" />
+  </div>
+
+  <div>
+    <label for="description" class="entity-form__label">Descrição</label>
+    <textarea id="description" formControlName="description" class="entity-form__textarea"></textarea>
+  </div>
+
+  <button type="submit" class="entity-form__submit-button">Salvar</button>
+</form>

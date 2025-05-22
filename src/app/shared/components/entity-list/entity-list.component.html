@@ -1,0 +1,18 @@
+@if (entities.length === 0) {
+  <div class="entity-list__empty-message">Nenhum item encontrado.</div>
+}
+
+@if (entities.length > 0) {
+  <table class="entity-list__table">
+    <tbody>
+      @for (entity of entities; track entity.id) {
+        <tr>
+          <td>Nome da Entidade</td>
+          <td>
+            <button class="entity-list__actions--delete" (click)="delete.emit(entity.id)">Excluir</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
