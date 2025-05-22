@@ -22,9 +22,21 @@ export const categoryReducer = createReducer(
     categories,
     loading: false,
   })),
-  on(CategoryActions.loadCategoriesFailure, (state, { error }) => ({
-    ...state,
-    error,
-    loading: false,
-  }))
+
+  on(CategoryActions.loadCategoryByIdSuccess, (state, { category }) => {
+    const exists = state.categories.find(c => c.id === category.id);
+    if (exists) {
+      return {
+        ...state,
+        categories: state.categories.map(c => c.id === category.id ? category : c),
+        loading: false,
+      };
+    } else {
+      return {
+        ...state,
+        categories: [...state.categories, category],
+        loading: false,
+      };
+    }
+  })
 );

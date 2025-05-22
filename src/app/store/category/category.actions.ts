@@ -11,6 +11,21 @@ export const loadCategoriesFailure = createAction(
   props<{ error: any }>()
 );
 
+export const loadCategoryById = createAction(
+  '[Category] Load Category by ID',
+  props<{ id: number }>()
+);
+
+export const loadCategoryByIdSuccess = createAction(
+  '[Category] Load Category by ID Success',
+  props<{ category: Category }>()
+);
+
+export const loadCategoryByIdFailure = createAction(
+  '[Category] Load Category by ID Failure',
+  props<{ error: any }>()
+);
+
 // CRUD
 export const createCategory = createAction(
   '[Category] Create Category',

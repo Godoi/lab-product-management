@@ -1,20 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
-// Models
-import { Category } from '../../shared/models/category.model';
 import { Product } from '../../shared/models/product.model';
 
-// Store
-import * as CategoryActions from '../../../store/category/category.actions';
-import * as CategorySelectors from '../../../store/category/category.selectors';
-import * as ProductActions from '../../store/product/product.actions';
+import * as CategoryActions from '../../store/category/category.actions';
+import * as CategorySelectors from '../../store/category/category.selectors';
 import * as ProductSelectors from '../../store/product/product.selectors';
 
-// Components
 import { EntityListComponent } from '../../shared/components/entity-list/entity-list.component';
 
 @Component({
@@ -24,11 +20,18 @@ import { EntityListComponent } from '../../shared/components/entity-list/entity-
   standalone: true,
   imports: [
     EntityListComponent,
+    AsyncPipe
   ],
 })
 export class CategoryDetailPageComponent {
   private route = inject(ActivatedRoute);
-  private store = inject(Store);
+
+  constructor(private store: Store) {}
+
+  ngOnInit(): void {
+    const id = +this.route.snapshot.params['id'];
+    this.category$ = this.store.select(CategorySelectors.selectCategoryById(id));
+  }
 
   categoryId$: Observable<number> = this.route.params.pipe(
     map(params => Number(params['id']))
@@ -41,8 +44,15 @@ export class CategoryDetailPageComponent {
     })
   );
 
-  productsInCategory$: Observable<Product[]> = this.categoryId$.pipe(
-    switchMap(id => this.store.select(ProductSelectors.selectAllProducts)),
-    map(products => products.filter(p => p.categoryId === id))
-  );
+productsInCategory$: Observable<Product[]> = this.categoryId$.pipe(
+  switchMap(id =>
+    this.store.select(ProductSelectors.selectAllProducts).pipe(
+      map(products => ({
+        products,
+        id
+      }))
+    )
+  ),
+  map(({ products, id }) => products.filter(p => p.categoryId === id))
+);
 }

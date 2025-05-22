@@ -19,6 +19,19 @@ export class CategoryEffects {
     )
   );
 
+  loadCategoryById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(CategoryActions.loadCategoryById),
+      switchMap((action) =>
+        this.categoryService.getCategoryById(action.id).pipe(
+          map(category => CategoryActions.loadCategoryByIdSuccess({ category })),
+          catchError(error => of(CategoryActions.loadCategoryByIdFailure({ error }))
+        )
+      )
+     )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private categoryService: CategoryService
