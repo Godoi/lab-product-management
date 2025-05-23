@@ -1,0 +1,10 @@
+<div class="user">
+  <h2>Usuários</h2>
+
+  <app-entity-list
+    [entities]="(users$ | async) ?? []"
+    [displayedColumns]="['name', 'email']"
+    (delete)="onDelete($event)"
+  ></app-entity-list>
+
+</div>

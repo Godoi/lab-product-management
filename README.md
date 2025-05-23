@@ -1,27 +1,43 @@
-# LabProductManagement
+# Lab Product Management
+Este é um projeto Angular para gerenciamento de produtos com suporte a listagem, cadastro, edição e exclusão. O estado da aplicação é gerenciado com NgRx Store , e os dados são mockados usando JSON Server .
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+## Tecnologias Utilizadas
+1. Angular <br>
+2. NgRx (Store, Effects, Entity) <br>
+3. JSON Server - Para simular uma API REST<br>
+4. Concurrently - Rodar múltiplos scripts em paralelo <br>
+5. [Husky + Lint-Staged + Commitlint + Prettier + ESLint + Stylelint] - Ferramentas de qualidade de código e padronização
 
-## Development server
+## Começando
+### 1. Instalar dependências
+npm install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 2. Iniciar a aplicação e a API mockada
+npm run start:all
 
-## Code scaffolding
+- A aplicação roda em http://localhost:4200
+- A API mockada roda em http://localhost:3000
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Qualidade de Código
+O projeto utiliza as seguintes ferramentas para garantir boas práticas:
 
-## Build
+1. ESLint : Valida regras de estilo e padrões TypeScript<br>
+2. Stylelint : Garante consistência em arquivos SCSS<br>
+3. Prettier : Formata automaticamente o código<br>
+4. Husky + Lint-Staged : Aplica validações antes de commits<br>
+5. Commitlint : Garante mensagens de commit no padrão Angular
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Funcionalidades Implementadas
+- CRUD de Produtos;<br>
+- Gerenciamento de Estado com NgRx (Store + Effects);<br>
+- Mock de API com JSON Server;<br>
+- Rotas Lazy Load (se aplicável);<br>
+- Estilização modular com SCSS avançado
 
-## Running unit tests
+## Lint & Format
+Validar e formatar código:
+npm run lint
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Requisitos
+Node.js >= 18.x
+npm >= 9.x

@@ -16,7 +16,11 @@ const initialState: State = {
 
 export const productReducer = createReducer(
   initialState,
-  on(ProductActions.loadProducts, (state) => ({ ...state, loading: true })),
+
+  on(ProductActions.loadProducts, (state) => ({
+    ...state,
+    loading: true,
+  })),
   on(ProductActions.loadProductsSuccess, (state, { products }) => ({
     ...state,
     products,
@@ -27,8 +31,21 @@ export const productReducer = createReducer(
     error,
     loading: false,
   })),
-    on(ProductActions.deleteProduct, (state, { id }) => ({
+
+  on(ProductActions.createProductSuccess, (state, { product }) => ({
     ...state,
-    products: state.products.filter(product => product.id !== id)
+    products: [...state.products, product],
+  })),
+
+  on(ProductActions.updateProductSuccess, (state, { product }) => ({
+    ...state,
+    products: state.products.map((p) =>
+      p.id === product.id ? product : p
+    ),
+  })),
+
+  on(ProductActions.deleteProductSuccess, (state, { id }) => ({
+    ...state,
+    products: state.products.filter((product) => product.id !== id),
   }))
 );

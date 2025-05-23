@@ -1,6 +1,4 @@
-import { BaseEntity } from "./base-entity.model";
-
-export interface Product extends BaseEntity {
+export interface Product {
   id: number;
   name: string;
   price: number;

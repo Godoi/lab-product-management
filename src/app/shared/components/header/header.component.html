@@ -1,0 +1,12 @@
+<header class="app-header">
+  <div class="container">
+    <nav class="navbar">
+      <a class="navbar-brand" routerLink="/products">Listas</a>
+
+      <ul class="nav-links">
+        <li><a routerLink="/products" (click)="navigateTo('/products')" routerLinkActive="active">Produtos</a></li>
+        <li><a routerLink="/users" (click)="navigateTo('/users')" routerLinkActive="active">Usuários</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

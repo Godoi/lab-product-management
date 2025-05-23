@@ -1,9 +1,67 @@
 {
   "products": [
-    { "id": 1, "name": "Notebook", "price": 3000, "categoryId": 1 },
-    { "id": 2, "name": "Smartphone", "price": 1500, "categoryId": 1 }
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "price": 1500,
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Notebook",
+      "price": 4500,
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Tablet",
+      "price": 2200,
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Fone de Ouvido Bluetooth",
+      "price": 300,
+      "categoryId": 2
+    },
+    {
+      "id": 5,
+      "name": "Caixa de Som Portátil",
+      "price": 450,
+      "categoryId": 2
+    },
+    {
+      "id": 6,
+      "name": "Smartwatch",
+      "price": 800,
+      "categoryId": 3
+    },
+    {
+      "id": 7,
+      "name": "Câmera DSLR",
+      "price": 3200,
+      "categoryId": 4
+    },
+    {
+      "id": 8,
+      "name": "Teclado Mecânico",
+      "price": 400,
+      "categoryId": 2
+    },
+    {
+      "id": 9,
+      "name": "Mouse sem Fio",
+      "price": 150,
+      "categoryId": 2
+    },
+    {
+      "id": 10,
+      "name": "Monitor 27 polegadas",
+      "price": 1200,
+      "categoryId": 1
+    }
   ],
-  "categories":[
+  "categories": [
     {
       "id": 1,
       "name": "Eletrônicos"
@@ -23,6 +81,53 @@
     {
       "id": 5,
       "name": "Brinquedos"
+    }
+  ],
+  "users": [
+    {
+      "id": 2,
+      "name": "Beatriz",
+      "email": "beatriz@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Carlos",
+      "email": "carlos@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Daniela",
+      "email": "daniela@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "Eduardo",
+      "email": "eduardo@gmail.com"
+    },
+    {
+      "id": 6,
+      "name": "Fernanda",
+      "email": "fernanda@gmail.com"
+    },
+    {
+      "id": 7,
+      "name": "Gustavo",
+      "email": "gustavo@gmail.com"
+    },
+    {
+      "id": 8,
+      "name": "Helena",
+      "email": "helena@gmail.com"
+    },
+    {
+      "id": 9,
+      "name": "Igor",
+      "email": "igor@gmail.com"
+    },
+    {
+      "id": 10,
+      "name": "Juliana",
+      "email": "juliana@gmail.com"
     }
   ]
 }
