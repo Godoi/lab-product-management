@@ -35,9 +35,9 @@ O projeto utiliza as seguintes ferramentas para garantir boas práticas:
 - Estilização modular com SCSS avançado
 
 ## Lint & Format
-Validar e formatar código:
+Validar e formatar código:<br>
 npm run lint
 
 ## Requisitos
-Node.js >= 18.x
+Node.js >= 18.x<br>
 npm >= 9.x
