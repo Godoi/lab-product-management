@@ -1,5 +1,5 @@
-@use '../../../assets/scss/variables' as *;
-@use '../../../assets/scss/mixins' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 .entity-list {
   margin-bottom: $spacing-unit * 2;
@@ -8,12 +8,13 @@
     text-align: center;
     padding: $spacing-unit;
     color: #888;
+    font-style: italic;
   }
 
-  table {
+  &__table {
     width: 100%;
     border-collapse: collapse;
-    @include shadow;
+    @include shadow(1);
 
     th,
     td {
@@ -34,10 +35,22 @@
     }
   }
 
-  .actions {
-    &__delete-button {
+  &__actions {
+    &--delete {
       @include button-style($secondary-color);
       font-size: 0.875rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__table {
+      font-size: 0.9rem;
+      th,
+      td {
+        padding: 0.5rem;
+      }
     }
   }
 }
+

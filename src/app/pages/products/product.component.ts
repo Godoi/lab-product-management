@@ -7,7 +7,6 @@ import { Product } from '../../shared/models/product.model';
 import * as ProductActions from '../../store/product/product.actions';
 import * as ProductSelectors from '../../store/product/product.selectors';
 import { EntityListComponent } from '../../shared/components/entity-list/entity-list.component';
-import { EntityFormComponent } from '../../shared/components/entity-form/entity-form.component';
 
 @Component({
   selector: 'app-product',
@@ -16,11 +15,10 @@ import { EntityFormComponent } from '../../shared/components/entity-form/entity-
   standalone: true,
   imports: [
     EntityListComponent,
-    EntityFormComponent,
     AsyncPipe
   ]
 })
-export class ProductPageComponent {
+export class ProductComponent {
   products$: Observable<Product[]>;
   loading$: Observable<boolean>;
 

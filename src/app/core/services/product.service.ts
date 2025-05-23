@@ -7,7 +7,7 @@ import { Product } from '../../shared/models/product.model';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = '/api/products'; // Proxy para json-server
+  private apiUrl = 'http://localhost:3000/products';
 
   constructor(private http: HttpClient) {}
 

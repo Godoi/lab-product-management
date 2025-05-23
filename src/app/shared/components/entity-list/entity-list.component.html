@@ -1,18 +1,38 @@
-@if (entities.length === 0) {
-  <div class="entity-list__empty-message">Nenhum item encontrado.</div>
-}
+<div class="entity-list">
+  @if (entities.length === 0) {
+    <div class="entity-list__empty-message">
+      Nenhum item encontrado.
+    </div>
+  }
 
-@if (entities.length > 0) {
-  <table class="entity-list__table">
-    <tbody>
-      @for (entity of entities; track entity.id) {
+  @if (entities.length > 0) {
+    <table class="entity-list__table">
+      <thead>
         <tr>
-          <td>Nome da Entidade</td>
-          <td>
-            <button class="entity-list__actions--delete" (click)="delete.emit(entity.id)">Excluir</button>
-          </td>
+          @for (column of displayedColumns; track column) {
+            <th>{{ column }}</th>
+          }
+          <th>Ações</th>
         </tr>
-      }
-    </tbody>
-  </table>
-}
+      </thead>
+      <tbody>
+        @for (entity of entities; track entity.id) {
+          <tr>
+            @for (column of displayedColumns; track column) {
+              <td>{{ entity[column] }}</td>
+            }
+            <td>
+              <button
+                class="entity-list__actions--delete"
+                type="button"
+                (click)="delete.emit(entity.id)"
+              >
+                Excluir
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

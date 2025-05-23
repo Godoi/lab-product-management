@@ -26,5 +26,9 @@ export const productReducer = createReducer(
     ...state,
     error,
     loading: false,
+  })),
+    on(ProductActions.deleteProduct, (state, { id }) => ({
+    ...state,
+    products: state.products.filter(product => product.id !== id)
   }))
 );

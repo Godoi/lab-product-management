@@ -1,7 +1,7 @@
-@use '../../../../assets/scss/variables' as *;
-@use '../../../../assets/scss/mixins' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
-.product-page {
+.product {
   padding: $spacing-unit;
 
   h2 {
